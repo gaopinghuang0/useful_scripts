@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # inspired by https://github.com/tartley/rerun2/blob/master/rerun
 
-# Example usage:
-# for single command
+# rerun the code after each file "save"
+
+# Example usage
+# for single command:
 # rerun python test.py
-# for multiple commands
+# for multiple commands:
 # rerun sh -c "clear; make; ./a.out"
 
 
