@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# inspired by https://github.com/tartley/rerun2/blob/master/rerun
+
+# Example usage:
+# for single command
+# rerun python test.py
+# for multiple commands
+# rerun sh -c "clear; make; ./a.out"
+
+
+IGNORE_SECS=0.25
+
+# every modification in sublime text or vim will trigger twice 
+# make it trigger once
+accept_next_sublime_modify=false
+
+function execute() {
+    echo "$@"
+    "$@"
+}
+
+execute "$@"
+ignore_until=$(date +%s.%N)
+
+# if in cygwin, there is a port version of inotifywait
+# inotifywait --recursive --monitor --format "%e %w%f" \
+inotifywait --monitor --format "%e %w%f" \
+    --event modify \
+    --exclude '__pycache__' \
+    . | while read changed
+do
+    if $accept_next_sublime_modify ; then
+        echo "$changed"
+        sleep $IGNORE_SECS ; execute "$@"
+        accept_next_sublime_modify=false
+    else
+        accept_next_sublime_modify=true
+    fi
+
+done
+
