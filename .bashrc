@@ -1,4 +1,4 @@
-
+# .bashrc
 # Author: Gaoping Huang
 # Email: gaopinghuang@gmail.com
 # Updated date: Aug 4, 2017
@@ -10,7 +10,7 @@
 
 ######### general config, for server, bash, cygwin, etc. ########
 
-export LS_COLORS='di=1;33:ex=1;32'  # the color after run `ls`
+export LS_COLORS='di=1;33:ex=1;32'  # colorize output from running `ls`
 
 alias l="ls"
 alias ls="ls --color=auto --group-directories-first"
@@ -78,7 +78,7 @@ case "$(uname -s)" in
 
       # color_prompt
       # cygwin's prompt style, simply call `echo $PS1`, addtionally add time by `\t` 
-      export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \t \[\e[33m\]\w\[\e[0m\]\n\$"
+      export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \t \[\e[33m\]\w\[\e[0m\]\n\$ "
       
       alias workon="source env/Scripts/activate"  # for virtualenv
       
@@ -99,7 +99,7 @@ case "$(uname -s)" in
       alias java-std="java -cp step7.jar Micro"
 
       # Some shortcuts to often used directory
-      alias work="cd ~/Documents/workspace"
+      alias work="cd f:/Eclipse_workspace"
       alias story="cd f:/Eclipse_workspace/stories_TBD/story-graph"
 
       # rerun any code after file modify
