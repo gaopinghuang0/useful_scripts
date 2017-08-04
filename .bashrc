@@ -1,5 +1,8 @@
 
-# Gaoping's .bashrc
+# Author: Gaoping Huang
+# Email: gaopinghuang@gmail.com
+# Updated date: Aug 4, 2017
+
 
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
@@ -37,6 +40,11 @@ alias sshlinode="ssh huang@45.79.68.177"
 # alias python="python -i -u"      # use ipython instead
 alias pyserver="python -m SimpleHTTPServer"
 
+function syncbashrc {
+  builtin cd ~
+  wget --no-check-certificate https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc
+  source .bashrc
+}
 
 # customize settings
 # ------------------
