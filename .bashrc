@@ -80,7 +80,14 @@ case "$(uname -s)" in
       function cd {
         builtin cd "$@" && ls -GFh
       }
-
+      
+      function syncbashrc {
+        builtin cd ~
+        curl https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc > .bashrc.new
+        mv .bashrc.new .bashrc
+        source .bashrc
+      }
+      
      ;;
 
    Linux)
