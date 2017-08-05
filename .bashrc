@@ -13,7 +13,6 @@
 export LS_COLORS='di=1;33:ex=1;32'  # colorize output from running `ls`
 
 alias l="ls"
-alias ls="ls --color=auto --group-directories-first"
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias ..="cd .."
@@ -52,9 +51,36 @@ function syncbashrc {
 # Credit: adapted from https://stackoverflow.com/questions/3466166/how-to-check-if-running-in-cygwin-mac-or-linux
 # detect os platform by `uname -s`, then use corresponding config
 case "$(uname -s)" in
+  Darwin|Linux )
+    # echo 'both'
+
+    alias work="cd ~/Documents/workspace"
+    alias workon="source env/bin/activate"  # for virtualenv
+
+    ;;
+esac
+case "$(uname -s)" in
 
    Darwin)
-     echo 'Mac OS X'
+      # echo 'Mac OS X'
+
+      # color_prompt
+      export PS1="\n\u@\h:\[\033[33;1m\]\w\[\033[m\]\n\$ "
+
+      # npm
+      export PATH="$HOME/.node/bin:$PATH"
+
+      # MacPorts Installer addition on 2015-12-23_at_17:45:00: adding an appropriate PATH variable for use with MacPorts.
+      export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+      # Finished adapting your PATH environment variable for use with MacPorts.
+
+      export LSCOLORS=gxfxaxdxcxegedabagacad
+      alias ls='ls -GFh'
+      # cd then ls 
+      function cd {
+        builtin cd "$@" && ls -GFh
+      }
+
      ;;
 
    Linux)
@@ -64,7 +90,7 @@ case "$(uname -s)" in
       # Credit: https://askubuntu.com/a/549150
       export PS1="\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[01;35m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ "
 
-      alias workon="source env/bin/activate"  # for virtualenv
+      alias ls="ls --color=auto --group-directories-first"
 
      ;;
 
@@ -85,6 +111,7 @@ case "$(uname -s)" in
       # shortcut to kill all windows node.exe, taskkill also works for other exe
       alias killnode="taskkill /F /IM node.exe"
 
+      alias ls="ls --color=auto --group-directories-first"
 
       # For SASS and Compass
       alias sass-w="sass --watch --style expanded"
