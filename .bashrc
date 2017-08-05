@@ -10,7 +10,8 @@
 
 ######### general config, for server, bash, cygwin, etc. ########
 
-export LS_COLORS='di=1;33:ex=1;32'  # colorize output from running `ls`
+# di: directroy; ex: executable; 1: bold; 32: green; 33: yellow; 36: cyan;
+export LS_COLORS='di=1;36:ex=1;32'  # colorize output from running `ls`
 
 alias l="ls"
 alias ll='ls -l'                              # long list
