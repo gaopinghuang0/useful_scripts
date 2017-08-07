@@ -10,19 +10,12 @@
 
 ######### general config, for server, bash, cygwin, etc. ########
 
-# di: directroy; ex: executable; 1: bold; 32: green; 33: yellow; 36: cyan;
-export LS_COLORS='di=1;36:ex=1;32'  # colorize output from running `ls`
 
 alias l="ls"
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias ..="cd .."
 alias ...="cd ../.."
-
-# cd then ls 
-function cd {
-  builtin cd "$@" && ls -F
-}
 
 alias vi="vim"
 alias vibash="vi ~/.bashrc"
@@ -58,6 +51,20 @@ case "$(uname -s)" in
     alias work="cd ~/Documents/workspace"
     alias workon="source env/bin/activate"  # for virtualenv
 
+    ;;
+esac
+case "$(uname -s)" in
+  Linux|CYGWIN*|MINGW32*|MSYS* )
+    # echo 'both'
+
+    # di: directroy; ex: executable; 1: bold; 32: green; 33: yellow; 36: cyan;
+    export LS_COLORS='di=1;36:ex=1;32'  # colorize output from running `ls`
+    alias ls="ls --color=auto --group-directories-first"
+    # cd then ls 
+    function cd {
+      builtin cd "$@" && ls -F --color=auto --group-directories-first
+    }
+    
     ;;
 esac
 case "$(uname -s)" in
@@ -98,8 +105,6 @@ case "$(uname -s)" in
       # Credit: https://askubuntu.com/a/549150
       export PS1="\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[01;35m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ "
 
-      alias ls="ls --color=auto --group-directories-first"
-
      ;;
 
    CYGWIN*|MINGW32*|MSYS*)
@@ -119,7 +124,6 @@ case "$(uname -s)" in
       # shortcut to kill all windows node.exe, taskkill also works for other exe
       alias killnode="taskkill /F /IM node.exe"
 
-      alias ls="ls --color=auto --group-directories-first"
 
       # For SASS and Compass
       alias sass-w="sass --watch --style expanded"
