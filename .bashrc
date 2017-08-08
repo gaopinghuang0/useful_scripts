@@ -34,10 +34,9 @@ alias sshlinode="ssh huang@45.79.68.177"
 alias pyserver="python -m SimpleHTTPServer"
 
 function syncbashrc {
-  builtin cd ~
   wget --no-check-certificate https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc --output-document .bashrc.new
-  mv .bashrc.new .bashrc
-  source .bashrc
+  mv .bashrc.new ~/.bashrc
+  source ~/.bashrc
 }
 
 # customize settings
@@ -90,10 +89,9 @@ case "$(uname -s)" in
       }
       
       function syncbashrc {
-        builtin cd ~
         curl https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc > .bashrc.new
-        mv .bashrc.new .bashrc
-        source .bashrc
+        mv .bashrc.new ~/.bashrc
+        source ~/.bashrc
       }
       
      ;;
