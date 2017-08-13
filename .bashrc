@@ -130,18 +130,18 @@ case "$(uname -s)" in
       alias gem="C:/RailsInstaller/Ruby2.1.0/bin/gem"
 
       # For java directory
-      alias tojava="cd F:/Eclipse_workspace/java"
+      alias tojava="cd F:/workspace/java"
       alias javac="C:/'Program Files'/Java/jdk1.8.0_51/bin/javac"
       alias java-mine="java -cp lib/antlr.jar';'classes Micro"
       alias java-std="java -cp step7.jar Micro"
 
       # Some shortcuts to often used directory
-      alias work="cd f:/Eclipse_workspace"
-      alias story="cd f:/Eclipse_workspace/stories_TBD/story-graph"
+      alias work="cd f:/workspace"
+      alias story="cd f:/workspace/stories_TBD/story-graph"
 
       # rerun any code after file modify
       # rerun python test.py
-      alias rerun="/cygdrive/f/Eclipse_workspace/rerun/rerun"
+      alias rerun="/cygdrive/f/workspace/rerun/rerun"
 
 
       # ssh-pageant for windows
