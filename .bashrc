@@ -25,7 +25,6 @@ alias sourcebash="source ~/.bashrc"
 alias gitst="git status"
 
 # add ssh-key
-alias addssh="ssh-add ~/.ssh/id_rsa"
 alias sshmin="ssh huang679@min.ecn.purdue.edu"
 alias sshhci="ssh huang679@hci.ecn.purdue.edu"
 alias sshlinode="ssh huang@45.79.68.177"
