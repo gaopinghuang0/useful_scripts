@@ -14,7 +14,7 @@ set nocompatible " Use VIM settings rather than Vi settings; this *must* be
 
 if !has("gui_running")
     " In non-GUI mode (vim), use the "evening"
-    colorscheme evening
+    colorscheme desert
 else
     " In GUI mode (gvim), use the "leo" color scheme or "default" as a fallback
     try
