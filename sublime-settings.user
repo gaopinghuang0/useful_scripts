@@ -9,7 +9,7 @@
 	[
 		80
 	],
-	"tab_size": 2,
+	// "tab_size": 2,  // set tab_size per filetype instead of global, via "Settings - Syntax Specific"
 	"translate_tabs_to_spaces": true,
 	"update_check": false
 }
