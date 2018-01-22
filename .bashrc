@@ -82,6 +82,8 @@ case "$(uname -s)" in
 
       export LSCOLORS=gxfxaxdxcxegedabagacad
       alias ls='ls -GFh'
+	  alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
       # cd then ls 
       function cd {
         builtin cd "$@" && ls -GFh
