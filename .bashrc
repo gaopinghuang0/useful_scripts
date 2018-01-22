@@ -67,8 +67,7 @@ case "$(uname -s)" in
 esac
 case "$(uname -s)" in
 
-   Darwin)
-      # echo 'Mac OS X'
+   Darwin)   # 'Mac OS X'
 
       # color_prompt
       export PS1="\n\u@\h:\[\033[33;1m\]\w\[\033[m\]\n\$ "
@@ -82,7 +81,7 @@ case "$(uname -s)" in
 
       export LSCOLORS=gxfxaxdxcxegedabagacad
       alias ls='ls -GFh'
-	  alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+      alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
       # cd then ls 
       function cd {
@@ -98,7 +97,6 @@ case "$(uname -s)" in
      ;;
 
    Linux)
-      # echo 'Linux'
 
       # color_prompt
       # Credit: https://askubuntu.com/a/549150
@@ -106,9 +104,8 @@ case "$(uname -s)" in
 
      ;;
 
-   CYGWIN*|MINGW32*|MSYS*)
-      # echo 'MS Windows'
-
+   CYGWIN*|MINGW32*|MSYS*)  # 'MS Windows'
+      
       # For MongoDB mongod, mongodump, and mongo
       export PATH="/cygdrive/c/Program Files/MongoDB/Server/3.4/bin/":$PATH
       # alias mongod-local="mongod --dbpath=f:/mongo_data/data/"
@@ -123,6 +120,13 @@ case "$(uname -s)" in
       # shortcut to kill all windows node.exe, taskkill also works for other exe
       alias killnode="taskkill /F /IM node.exe"
 
+      alias jekyll="/cygdrive/c/RailsInstaller/Ruby2.1.0/bin/jekyll.bat"
+      alias bundle="/cygdrive/c/RailsInstaller/Ruby2.1.0/bin/bundle.bat"
+      alias Rscript="/cygdrive/c/'Program Files'/R/R-3.3.0/bin/Rscript.exe"
+      alias R="/cygdrive/c/'Program Files'/R/R-3.3.0/bin/R.exe"
+
+      # For sublime text
+      alias subl="/cygdrive/c/'Program Files (x86)'/'Sublime Text 3'/subl.exe"
 
       # For SASS and Compass
       alias sass-w="sass --watch --style expanded"
