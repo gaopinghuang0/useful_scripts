@@ -2,12 +2,12 @@
 some useful scripts
 
 ### .bashrc  (.vimrc is similar)
-```shell
+```bash
 # for the first time, run
-wget --no-check-certificate https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc --output-document .bashrc.new
-mv .bashrc.new ~/.bashrc
-source ~/.bashrc
+$ wget --no-check-certificate https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc --output-document .bashrc.new
+$ mv .bashrc.new ~/.bashrc
+$ source ~/.bashrc
 
-# next time, simply run
-syncbashrc
+# for the future time, simply run
+$ syncbashrc
 ```
