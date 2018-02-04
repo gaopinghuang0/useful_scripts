@@ -127,6 +127,7 @@ case "$(uname -s)" in
 
       # For sublime text
       alias subl="/cygdrive/c/'Program Files (x86)'/'Sublime Text 3'/subl.exe"
+      alias open="cygstart"
 
       # For SASS and Compass
       alias sass-w="sass --watch --style expanded"
