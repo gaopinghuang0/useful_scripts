@@ -13,7 +13,7 @@
     'use strict';
 
     // Your code here...
-    var banNovelTypes = ['都市'];
+    var banNovelTypes = ['都市', '历史'];
 
     $(document).ready(function() {
         hideNovelByType();
@@ -23,12 +23,9 @@
         $('ul.all-img-list li').each(function() {
             var _type = $(this).find('a[data-eid="qd_B60"]').text();
             var self = $(this);
-            banNovelTypes.forEach(function(type, idx) {
-                if (type === _type) {
-                    self.css('opacity', 0.1);
-                    return;
-                }
-            });
+            if (banNovelTypes.indexOf(_type) !== -1) {
+                self.css('opacity', 0.1);
+            }
         });
     }
 })();
