@@ -21,10 +21,9 @@
 
     function hideNovelByType() {
         $('ul.all-img-list li').each(function() {
-            var _type = $(this).find('a[data-eid="qd_B60"]').text();
-            var self = $(this);
-            if (banNovelTypes.indexOf(_type) !== -1) {
-                self.css('opacity', 0.1);
+            var type = $(this).find('a[data-eid="qd_B60"]').text();
+            if (banNovelTypes.indexOf(type) !== -1) {
+                $(this).css('opacity', 0.1);
             }
         });
     }
