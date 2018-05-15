@@ -57,7 +57,7 @@ case "$(uname -s)" in
 
     # di: directroy; ex: executable; 1: bold; 32: green; 33: yellow; 36: cyan;
     export LS_COLORS='di=1;36:ex=1;32'  # colorize output from running `ls`
-    alias ls="ls --color=auto --group-directories-first"
+    alias ls="ls -F --color=auto --group-directories-first"
     # cd then ls 
     function cd {
       builtin cd "$@" && ls -F --color=auto --group-directories-first
@@ -120,8 +120,6 @@ case "$(uname -s)" in
       # shortcut to kill all windows node.exe, taskkill also works for other exe
       alias killnode="taskkill /F /IM node.exe"
 
-      alias jekyll="/cygdrive/c/RailsInstaller/Ruby2.1.0/bin/jekyll.bat"
-      alias bundle="/cygdrive/c/RailsInstaller/Ruby2.1.0/bin/bundle.bat"
       alias Rscript="/cygdrive/c/'Program Files'/R/R-3.3.0/bin/Rscript.exe"
       alias R="/cygdrive/c/'Program Files'/R/R-3.3.0/bin/R.exe"
 
@@ -132,8 +130,11 @@ case "$(uname -s)" in
       # For SASS and Compass
       alias sass-w="sass --watch --style expanded"
       alias sass-we="sass-w sass/:css/"
-      alias compass="C:/RailsInstaller/Ruby2.1.0/bin/compass"
-      alias gem="C:/RailsInstaller/Ruby2.1.0/bin/gem"
+
+	  # For ruby and gem
+      alias gem="C:/Ruby24-x64/bin/gem"
+      alias bundle="C:/Ruby24-x64/bin/bundle"
+      # alias jekyll="C:/Ruby24-x64/bin/jekyll"
 
       # For java directory
       alias tojava="cd F:/workspace/java"
