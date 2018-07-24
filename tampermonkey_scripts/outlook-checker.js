@@ -22,14 +22,19 @@
   function repeat_check_unread_email() {
     var $inbox = $('span[title="Inbox"]'),
       $unread_div = $inbox.next('div'),
-      $count_span = $unread_div.find('span');
+      $count_span = $unread_div.find('span'),
+      $title = $('title');
 
     setInterval(function() {
       var count = parseInt($count_span.text());
       if (count > 0) {
-        alert('New email: ' + count)
+        // alert('New email: ' + count)
+        // change title instead of alert
+        $title.text('('+count+')');
+      } else {
+        $title.text('Mail')
       }
-    }, 30000);
+    }, 6000);
   }
 
 })();
