@@ -27,7 +27,7 @@ alias gitst="git status"
 # add ssh-key
 alias sshmin="ssh huang679@min.ecn.purdue.edu"
 alias sshhci="ssh huang679@hci.ecn.purdue.edu"
-alias sshlinode="ssh huang@45.79.68.177"
+alias sshlinode="ssh denghuang@104.200.31.91"
 
 # alias python="python -i -u"      # use ipython instead
 alias pyserver="python -m SimpleHTTPServer"
@@ -131,7 +131,7 @@ case "$(uname -s)" in
       alias sass-w="sass --watch --style expanded"
       alias sass-we="sass-w sass/:css/"
 
-	  # For ruby and gem
+      # For ruby and gem
       alias gem="C:/Ruby24-x64/bin/gem"
       alias bundle="C:/Ruby24-x64/bin/bundle"
       # alias jekyll="C:/Ruby24-x64/bin/jekyll"
@@ -144,12 +144,11 @@ case "$(uname -s)" in
 
       # Some shortcuts to often used directory
       alias work="cd f:/workspace"
-      alias story="cd f:/workspace/stories_TBD/story-graph"
+      alias story="cd f:/workspace/stories_TBD/CoStory"
 
       # rerun any code after file modify
       # rerun python test.py
       alias rerun="/cygdrive/f/workspace/rerun/rerun"
-
 
       # ssh-pageant for windows
       # see https://github.com/cuviper/ssh-pageant
@@ -233,4 +232,3 @@ function svn {
     print cpt_c, " conflicts are found.";
   }';
 }
-
