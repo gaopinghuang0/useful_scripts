@@ -144,6 +144,7 @@ case "$(uname -s)" in
 
       # Some shortcuts to often used directory
       alias work="cd f:/workspace"
+      builtin cd f:/workspace  # set it as startup dir
       alias story="cd f:/workspace/stories_TBD/CoStory"
 
       # rerun any code after file modify
@@ -153,7 +154,6 @@ case "$(uname -s)" in
       # ssh-pageant for windows
       # see https://github.com/cuviper/ssh-pageant
       eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
-
 
       # set SVN editor
       # export SVN_EDITOR=vim 
