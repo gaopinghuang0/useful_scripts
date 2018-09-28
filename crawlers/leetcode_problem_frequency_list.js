@@ -39,5 +39,6 @@ function _fetchTable(header) {
   })
   copy(JSON.stringify(rows))  // copy to clipboard, then save as json
   // format: [{"status": "", "id": 2, ...}, ...]
+  console.log('copied to clipboard')
 }
 
