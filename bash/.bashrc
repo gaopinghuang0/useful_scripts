@@ -33,7 +33,7 @@ alias sshlinode="ssh denghuang@104.200.31.91"
 alias pyserver="python -m SimpleHTTPServer"
 
 function syncbashrc {
-  wget --no-check-certificate https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/.bashrc --output-document .bashrc.new
+  wget --no-check-certificate https://raw.githubusercontent.com/gaopinghuang0/useful_scripts/master/bash/.bashrc --output-document .bashrc.new
   mv .bashrc.new ~/.bashrc
   source ~/.bashrc
 }

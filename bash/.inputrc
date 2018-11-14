@@ -1,4 +1,4 @@
-# use up/down to search history
+# use up/down arrow key to search history
 # source: https://stackoverflow.com/a/24060500/4246348
 "\e[A": history-search-backward
 "\e[B": history-search-forward

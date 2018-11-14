@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # inspired by https://github.com/tartley/rerun2/blob/master/rerun
 
-# rerun the code after each file "save"
+# rerun the code after each file "save".
+# alternatively, we can install "when-changed" command
 
 # Example usage
 # for single command:
