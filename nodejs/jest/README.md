@@ -1,5 +1,5 @@
 
-# Jest with Babel
+# Minimum Setup for Jest with Babel
 
 ## Install
 ```sh

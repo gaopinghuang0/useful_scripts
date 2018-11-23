@@ -1,7 +1,7 @@
 {
-  "name": "minimum-step-for-jest",
+  "name": "minimum-setup-for-jest",
   "version": "0.0.1",
-  "description": "minimum step for jest",
+  "description": "minimum setup for jest",
   "main": "index.js",
   "author": "Gaoping",
   "license": "MIT",
