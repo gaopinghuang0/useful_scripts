@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Highlight Paper by Citation
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Highlight the papers with many citations.
 // @author       Gaoping Huang
 // @match        https://scholar.google.com/scholar?*
@@ -36,7 +36,7 @@ var inline_src = (<><![CDATA[
             if (!text.startsWith('Cited by'))
                 return;
 
-            const number = parseInt(text);
+            const number = parseInt(text.replace(/\D/g, ''));
             if (number < threshold_number_to_highlight)
                 return;
 
