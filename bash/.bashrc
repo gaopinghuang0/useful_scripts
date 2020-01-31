@@ -26,8 +26,8 @@ alias gitst="git status"
 
 # add ssh-key
 alias sshmin="ssh huang679@min.ecn.purdue.edu"
-alias sshhci="ssh huang679@hci.ecn.purdue.edu"
-alias sshlinode="ssh denghuang@104.200.31.91"
+alias sshhci="ssh huang679@hci.ecn.purdue.edu"  # override in cygwin below
+alias sshlinode="ssh denghuang@104.200.31.91"   # override in cygwin below
 
 # alias python="python -i -u"      # use ipython instead
 alias pyserver="python -m SimpleHTTPServer"
@@ -52,7 +52,7 @@ case "$(uname -s)" in
     ;;
 esac
 case "$(uname -s)" in
-  Linux|CYGWIN*|MINGW32*|MSYS* )
+  Linux|CYGWIN*|MINGW32*|MINGW64*|MSYS* )
     # echo 'both'
 
     # di: directroy; ex: executable; 1: bold; 32: green; 33: yellow; 36: cyan;
@@ -104,7 +104,7 @@ case "$(uname -s)" in
 
      ;;
 
-   CYGWIN*|MINGW32*|MSYS*)  # 'MS Windows'
+   CYGWIN*|MINGW32*|MINGW64*|MSYS*)  # 'MS Windows'
       
       # For MongoDB mongod, mongodump, and mongo
       export PATH="/cygdrive/c/Program Files/MongoDB/Server/3.4/bin/":$PATH
@@ -132,8 +132,8 @@ case "$(uname -s)" in
       alias sass-we="sass-w sass/:css/"
 
       # For ruby and gem
-      alias gem="C:/Ruby24-x64/bin/gem"
-      alias bundle="C:/Ruby24-x64/bin/bundle"
+      alias gem="G:/Ruby24-x64/bin/gem"
+      alias bundle="G:/Ruby24-x64/bin/bundle"
       # alias jekyll="C:/Ruby24-x64/bin/jekyll"
 
       # For java directory
@@ -143,9 +143,12 @@ case "$(uname -s)" in
       alias java-std="java -cp step7.jar Micro"
 
       # Some shortcuts to often used directory
-      alias work="cd f:/workspace"
-      builtin cd f:/workspace  # set it as startup dir
-      alias story="cd f:/workspace/stories_TBD/CoStory"
+      alias work="cd g:/workspace"
+      # builtin cd g:/workspace  # set it as startup dir
+
+      # Forward ssh key of peagent by adding "-A".
+      alias sshhci="ssh -A huang679@hci.ecn.purdue.edu"
+      alias sshlinode="ssh -A denghuang@104.200.31.91"
 
       # rerun any code after file modify
       # rerun python test.py
