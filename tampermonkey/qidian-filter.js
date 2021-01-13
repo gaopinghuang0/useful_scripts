@@ -2,7 +2,7 @@
 // @name         Qidian Filter
 // @namespace    http://tampermonkey.net/
 // @version      0.2
-// @description  Fade out some types of novels on qidian.
+// @description  Fade out novels on qidian by specific types or manual ban.
 // @author       Gaoping Huang
 // @match        https://*.qidian.com/*
 // @require      https://code.jquery.com/jquery-latest.js

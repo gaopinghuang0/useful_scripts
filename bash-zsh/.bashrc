@@ -26,8 +26,8 @@ alias gitst="git status"
 
 # add ssh-key
 alias sshmin="ssh huang679@min.ecn.purdue.edu"
-alias sshhci="ssh huang679@hci.ecn.purdue.edu"
-alias sshlinode="ssh denghuang@104.200.31.91"
+alias sshhci="ssh huang679@hci.ecn.purdue.edu"  # override in cygwin below
+alias sshlinode="ssh denghuang@104.200.31.91"   # override in cygwin below
 
 # alias python="python -i -u"      # use ipython instead
 alias pyserver="python -m SimpleHTTPServer"
@@ -52,11 +52,11 @@ case "$(uname -s)" in
     ;;
 esac
 case "$(uname -s)" in
-  Linux|CYGWIN*|MINGW32*|MSYS* )
+  Linux|CYGWIN*|MINGW32*|MINGW64*|MSYS* )
     # echo 'both'
 
     # di: directroy; ex: executable; 1: bold; 32: green; 33: yellow; 36: cyan;
-    export LS_COLORS='di=1;36:ex=1;32'  # colorize output from running `ls`
+    export LS_COLORS='di=1;36:ex=1;32:ow=01;34'  # colorize output from running `ls`
     alias ls="ls -F --color=auto --group-directories-first"
     # cd then ls 
     function cd {
@@ -104,7 +104,7 @@ case "$(uname -s)" in
 
      ;;
 
-   CYGWIN*|MINGW32*|MSYS*)  # 'MS Windows'
+   CYGWIN*|MINGW32*|MINGW64*|MSYS*)  # 'MS Windows'
       
       # For MongoDB mongod, mongodump, and mongo
       export PATH="/cygdrive/c/Program Files/MongoDB/Server/3.4/bin/":$PATH
@@ -132,8 +132,8 @@ case "$(uname -s)" in
       alias sass-we="sass-w sass/:css/"
 
       # For ruby and gem
-      alias gem="C:/Ruby24-x64/bin/gem"
-      alias bundle="C:/Ruby24-x64/bin/bundle"
+      alias gem="G:/Ruby24-x64/bin/gem"
+      alias bundle="G:/Ruby24-x64/bin/bundle"
       # alias jekyll="C:/Ruby24-x64/bin/jekyll"
 
       # For java directory
@@ -143,9 +143,12 @@ case "$(uname -s)" in
       alias java-std="java -cp step7.jar Micro"
 
       # Some shortcuts to often used directory
-      alias work="cd f:/workspace"
-      builtin cd f:/workspace  # set it as startup dir
-      alias story="cd f:/workspace/stories_TBD/CoStory"
+      alias work="cd g:/workspace"
+      # builtin cd g:/workspace  # set it as startup dir
+
+      # Forward ssh key of peagent by adding "-A".
+      alias sshhci="ssh -A huang679@hci.ecn.purdue.edu"
+      alias sshlinode="ssh -A denghuang@104.200.31.91"
 
       # rerun any code after file modify
       # rerun python test.py
@@ -232,3 +235,27 @@ function svn {
     print cpt_c, " conflicts are found.";
   }';
 }
+
+# Auto-launch ssh-agent
+# https://help.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset env
