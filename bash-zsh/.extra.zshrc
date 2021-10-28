@@ -2,7 +2,7 @@
 # This is based on .bashrc
 # Author: Gaoping Huang
 # Email: gaopinghuang@gmail.com
-# Updated date: Jan 12, 2021
+# Updated date: Oct 28, 2021
 
 ### ls
 
