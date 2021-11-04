@@ -28,7 +28,7 @@ Based on this blog post: https://dlukes.github.io/flask-wsgi-url-prefix.html#mwe
 
 First, we can pass the `SCRIPT_NAME=/sub` from command line, which requires a WSGI-server, such as Gunicorn.
 ```bash
-$ SCRIPT_NAME=/my-app gunicorn app:app
+$ SCRIPT_NAME=/sub gunicorn app:app
 ```
 The built-in Flask server will ignore `SCRIPT_NAME` in env var, so it does not work this way.
 A workaround is to write below in `server.py`
@@ -38,7 +38,7 @@ from werkzeug.wrappers import Response
 
 app.wsgi_app = DispatcherMiddleware(
     Response('Not Found', status=404),
-    {'/my-app': app.wsgi_app}
+    {'/sub': app.wsgi_app}   # set the SCRIPT_NAME manually here.
 )
 ```
 
@@ -46,7 +46,7 @@ Next, we should not rewrite the Nginx as above. Instead, pass through it.
 ```nginx
 location /sub/ {
     proxy_pass http://127.0.0.1:8000/sub/;
-    # ...                            ^^^^^^^
+    # ...                            ^^^^
 }
 ```
 
