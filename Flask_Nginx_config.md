@@ -50,6 +50,11 @@ location /sub/ {
 }
 ```
 
+Then restart nginx by 
+```bash
+$ sudo systemctl reload nginx
+```
+
 Then it works.
 
 
